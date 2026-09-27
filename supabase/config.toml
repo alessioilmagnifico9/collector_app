@@ -1,0 +1,5 @@
+project_id = "dataset-collector"
+
+[functions.collector]
+# Enrollment is public; researcher JWTs and participant grants are checked in code.
+verify_jwt = false

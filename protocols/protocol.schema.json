@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Dataset Collector Protocol v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "requested_hz",
+    "sessions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "requested_hz": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 200
+    },
+    "sessions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 100,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "title",
+          "tasks"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "instructions": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "prompt",
+                "repetitions",
+                "posture",
+                "hand",
+                "device_role",
+                "task_type"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+                },
+                "prompt": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 4096
+                },
+                "repetitions": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000
+                },
+                "posture": {
+                  "enum": [
+                    "seated",
+                    "standing",
+                    "supine",
+                    "unspecified"
+                  ]
+                },
+                "hand": {
+                  "enum": [
+                    "left",
+                    "right",
+                    "either",
+                    "dominant",
+                    "non_dominant"
+                  ]
+                },
+                "device_role": {
+                  "enum": [
+                    "personal",
+                    "phone_a",
+                    "phone_b"
+                  ]
+                },
+                "task_type": {
+                  "enum": [
+                    "practice",
+                    "genuine",
+                    "impostor"
+                  ]
+                },
+                "preparation": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 4096
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "practice_repetitions": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "duration_seconds": {
+                  "anyOf": [
+                    {
+                      "type": "number",
+                      "minimum": 0.1,
+                      "maximum": 600
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "order_metadata": {
+      "type": "object"
+    }
+  }
+}

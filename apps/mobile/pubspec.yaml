@@ -1,0 +1,26 @@
+name: collector_mobile
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+environment:
+  sdk: '>=3.13.0 <4.0.0'
+dependencies:
+  http: ^1.6.0
+  mobile_scanner: ^7.1.2
+  drift: ^2.30.0
+  path_provider: ^2.1.5
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  experiment_models: ^0.1.0
+  protocol_engine: ^0.1.0
+  dataset_schema: ^0.1.0
+dev_dependencies:
+  drift_dev: ^2.30.0
+  build_runner: ^2.10.4
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - ../../protocols/example_protocol.json

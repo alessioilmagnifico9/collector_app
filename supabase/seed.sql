@@ -1,0 +1,2 @@
+-- Intentionally empty: no real participants, enrollment tokens or researcher
+-- passwords are seeded. Use the admin UI to create a study after authentication.

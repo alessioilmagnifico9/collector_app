@@ -1,0 +1,23 @@
+name: collector_admin
+version: 0.1.0+1
+publish_to: none
+resolution: workspace
+environment:
+  sdk: '>=3.13.0 <4.0.0'
+dependencies:
+  crypto: ^3.0.6
+  http: ^1.5.0
+  web: ^1.1.1
+  qr_flutter: ^4.1.0
+  supabase_flutter: ^2.10.0
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  experiment_models: ^0.1.0
+  protocol_engine: ^0.1.0
+  dataset_schema: ^0.1.0
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true

@@ -1,0 +1,17 @@
+{
+  "name": "collector-backend-checks",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node database.test.mjs && node --import tsx functions.test.mjs",
+    "format": "prettier --write '*.mjs' '*.json' '*.d.ts' '../../supabase/functions/**/*.ts' '../../supabase/functions/deno.json' ",
+    "check": "tsc -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "@types/node": "^22.18.6",
+    "prettier": "3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

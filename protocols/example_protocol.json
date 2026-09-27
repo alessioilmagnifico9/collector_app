@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "requested_hz": 100,
+  "sessions": [
+    {
+      "id": "00000000-0000-4000-8000-000000000002",
+      "title": "Motion session",
+      "instructions": "Follow one instruction at a time. Stop whenever you need a break.",
+      "tasks": [
+        {
+          "id": "00000000-0000-4000-8000-000000000010",
+          "prompt": "Draw a slow circle in the air.",
+          "repetitions": 2,
+          "posture": "seated",
+          "hand": "dominant",
+          "device_role": "personal",
+          "task_type": "genuine",
+          "preparation": "Sit comfortably and keep a clear space around your hand.",
+          "practice_repetitions": 1,
+          "duration_seconds": null
+        },
+        {
+          "id": "00000000-0000-4000-8000-000000000011",
+          "prompt": "Move the phone gently from left to right.",
+          "repetitions": 2,
+          "posture": "standing",
+          "hand": "non_dominant",
+          "device_role": "personal",
+          "task_type": "genuine",
+          "practice_repetitions": 0,
+          "duration_seconds": 5
+        }
+      ]
+    }
+  ],
+  "order_metadata": {
+    "description": "Fixed order. Example only; researchers must review before study publication."
+  }
+}
